@@ -1,4 +1,4 @@
-import { HistoryContanier, HistoryList } from "./style";
+import { HistoryContanier, HistoryList, Status } from "./style";
 
 export  function History() {
     return (
@@ -21,7 +21,10 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="yellow">In progress</Status>
+              </td>
+              
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
@@ -30,7 +33,9 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="green"> Complete </Status>
+              </td>
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
@@ -39,7 +44,9 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="green"> Complete </Status>
+              </td>
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
@@ -49,7 +56,9 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="red"> Interrupted </Status>
+              </td>
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
@@ -59,18 +68,9 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
-
-
-            
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="green"> Complete </Status>
+              </td>
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
@@ -81,7 +81,22 @@ export  function History() {
               <td>Task</td>
               <td>20 minutes</td>
               <td>About 2 months ago</td>
-              <td>In progress</td>
+              <td>              
+                <Status statusColor="yellow"> In progress </Status>
+              </td>
+              {/* <td>Interrupted</td>
+              <td>Complete</td> */}
+            </tr>
+
+
+            
+            <tr>
+              <td>Task</td>
+              <td>20 minutes</td>
+              <td>About 2 months ago</td>
+              <td>              
+                <Status statusColor="red"> Interrupted </Status>
+              </td>
               {/* <td>Interrupted</td>
               <td>Complete</td> */}
             </tr>
