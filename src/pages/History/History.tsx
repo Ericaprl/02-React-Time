@@ -1,6 +1,10 @@
 import { HistoryContanier, HistoryList, Status } from "./style";
+import { CyclesContext } from "../../contexts/CyclesContext";
+import { formatDistanceToNow } from "date-fns";
+import { useContext } from "react";
 
 export  function History() {
+    const {cycles} = useContext(CyclesContext);
     return (
       <HistoryContanier>
         <h1>My History</h1>
@@ -17,89 +21,24 @@ export  function History() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
+        {cycles.map(cycle => {
+         return (
+          <tr key={cycle.id}>
+            <td>{cycle.task}</td>
+            <td>{cycle.minutesAmount}</td>
+            <td>{formatDistanceToNow(cycle.startDate,{addSuffix:true})}</td>
+            <td>
+              {cycle.finishedDate && <Status statusColor="green">Complete</Status>}
+              {cycle.interruptedDate && <Status statusColor="red">Interrupt</Status>}
+              {!cycle.finishedDate && !cycle.interruptedDate && (
                 <Status statusColor="yellow">In progress</Status>
-              </td>
-              
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
+              )}
+            </td>
 
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="green"> Complete </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
+          </tr>
 
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="green"> Complete </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
-       
-       
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="red"> Interrupted </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
-
-            
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="green"> Complete </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
-
-
-            
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="yellow"> In progress </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
-
-
-            
-            <tr>
-              <td>Task</td>
-              <td>20 minutes</td>
-              <td>About 2 months ago</td>
-              <td>              
-                <Status statusColor="red"> Interrupted </Status>
-              </td>
-              {/* <td>Interrupted</td>
-              <td>Complete</td> */}
-            </tr>
+         )
+        })}
             
           </tbody>
 
